@@ -1,27 +1,26 @@
 # creating a virtual environment:
-# e
 
 # dictionaries
 
-# students = {"name":['swastik','shruti'], "age" : [4,6]}
-# # print (students['name'][1])
+students = {"name":['swastik','shruti'], "age" : [4,6]}
+print (students['name'][1])
 
-# students['gender'] = ["M","F"]
-# # print (students)
+students['gender'] = ["M","F"]
+print (students)
 
-# # looping through the dict
-# for key in students:
-#     print(key)
+# looping through the dict
+for key in students:
+    print(key)
 
-# for value in students.values():
-#     print(value)
+for value in students.values():
+    print(value)
 
-# for key,value in students.items():
-#     print (f"{key} - {value}")
+for key,value in students.items():
+    print (f"{key} - {value}")
 
 s = "my name is swastik"
 words = s.split()
-# print(words)
+print(words)
 
 # count the frequency of workd
 dict = {}
