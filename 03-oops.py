@@ -51,48 +51,82 @@
 
 
 # INHERITANCE
-class car:
-    def __init__(self,name,color):
-        self.name = name
-        self.color = color
+# class car:
+#     def __init__(self,name,color):
+#         self.name = name
+#         self.color = color
 
-    def carSpeed(self,speed):
-        print (f"{self.name} have the top speed {speed} ")
+#     def carSpeed(self,speed):
+#         print (f"{self.name} have the top speed {speed} ")
 
-class kia(car):
-    def __init__ (self,name,color,model):
-        super().__init__(name,color)  # Here we user super keyword 
-        self.model = model
+# class kia(car):
+#     def __init__ (self,name,color,model):
+#         super().__init__(name,color)  # Here we user super keyword 
+#         self.model = model
 
-    def selfDrive(self):
-        print(f"{self.name} Support {self.model}")
+#     def selfDrive(self):
+#         print(f"{self.name} Support {self.model}")
 
-obj = car("swastik","gray")
-obj.carSpeed(100)
+# obj = car("swastik","gray")
+# obj.carSpeed(100)
 
-obj2 = kia("swastik","gray","base")
-obj2.selfDrive()
+# obj2 = kia("swastik","gray","base")
+# obj2.selfDrive()
 
 
 # multi class inheritance
-class Animals :
-    def __init__ (self,name):
-        self.name= name
+# class Animals :
+#     def __init__ (self,name):
+#         self.name= name
     
+#     def speak(self):
+#         print("animal class")
+
+# class pet:
+#     def __init__(self,owner):
+#         self.owner = owner
+
+# class Dog(Animals,pet):
+#     def __init__ (self,name,owner):
+#         Animals.__init__(self,name)
+#         pet.__init__(self,owner)
+
+#     def identity(self):
+#         print(f"{self.owner} ows {self.name}")
+
+# obj = Dog("bunny","swastik")
+# obj.identity()
+
+
+# Polymorphism --> method overriding
+
+class Animal:
+    def __init__(self,name):
+        self.name = name
+
     def speak(self):
-        print("animal class")
+        print("sound of the animal")
 
-class pet:
-    def __init__(self,owner):
-        self.owner = owner
+class Dog(Animal):
+    def speak(self):
+        print("this is dog speaking ")
 
-class Dog(Animals,pet):
-    def __init__ (self,name,owner):
-        Animals.__init__(self,name)
-        pet.__init__(self,owner)
+ 
+obj = Dog("swastik")
+obj.speak()
 
-    def identity(self):
-        print(f"{self.owner} ows {self.name}")
 
-obj = Dog("bunny","swastik")
-obj.identity()
+# Interfaces -- Abstract class
+from abc import ABC, abstractmethod
+
+class vehicle(ABC):
+    @abstractmethod
+    def start_engine(self):
+        pass
+
+class car(vehicle):
+    def start_engine(self):
+        return ("car engine")
+    
+obj = car()
+print(obj.start_engine())
