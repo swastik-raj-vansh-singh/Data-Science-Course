@@ -1,11 +1,11 @@
-# OOP -> OGJECT ORIENTEF LANGUAGE 
+## OOP -> OGJECT ORIENTEF LANGUAGE 
 
-# -- its is a programing paradigm that revolves around the obejcts and classes 
-# -- OBJECT -> these are the real world entity created using the class
-# -- CLASS -> it is a template or the blueprint use to create an object 
+##-- its is a programing paradigm that revolves around the obejcts and classes 
+## -- OBJECT -> these are the real world entity created using the class
+## -- CLASS -> it is a template or the blueprint use to create an object 
  
 
-# class Dog :
+## class Dog :
 
 #     # creating a constructor
 #     def __init__ (self, name,age):
@@ -21,7 +21,7 @@
 
 
 
-# making a bank system 
+## making a bank system 
 
 # class BankAccount:
 #     def __init__(self,name,balance=0):
@@ -50,7 +50,7 @@
 
 
 
-# INHERITANCE
+## INHERITANCE
 # class car:
 #     def __init__(self,name,color):
 #         self.name = name
@@ -74,7 +74,7 @@
 # obj2.selfDrive()
 
 
-# multi class inheritance
+## multi class inheritance
 # class Animals :
 #     def __init__ (self,name):
 #         self.name= name
@@ -98,35 +98,63 @@
 # obj.identity()
 
 
-# Polymorphism --> method overriding
+## Polymorphism --> method overriding
 
-class Animal:
-    def __init__(self,name):
-        self.name = name
+# class Animal:
+#     def __init__(self,name):
+#         self.name = name
 
-    def speak(self):
-        print("sound of the animal")
+#     def speak(self):
+#         print("sound of the animal")
 
-class Dog(Animal):
-    def speak(self):
-        print("this is dog speaking ")
+# class Dog(Animal):
+#     def speak(self):
+#         print("this is dog speaking ")
 
  
-obj = Dog("swastik")
-obj.speak()
+# obj = Dog("swastik")
+# obj.speak()
 
 
-# Interfaces -- Abstract class
-from abc import ABC, abstractmethod
+# # Interfaces -- Abstract class
+# from abc import ABC, abstractmethod
 
-class vehicle(ABC):
-    @abstractmethod
-    def start_engine(self):
-        pass
+# class vehicle(ABC):
+#     @abstractmethod
+#     def start_engine(self):
+#         pass
 
-class car(vehicle):
-    def start_engine(self):
-        return ("car engine")
+# class car(vehicle):
+#     def start_engine(self):
+#         return ("car engine")
     
-obj = car()
-print(obj.start_engine())
+# obj = car()
+# print(obj.start_engine())
+
+
+
+# Encapsulation 
+
+# private 
+class Person:
+    def __init__ (self,name,age,gender):
+        self.__name = name  #yeh bn gaya pvt variable 
+        self.age = age  # this is normal public var
+        self._gender = gender
+
+    def getName(self):
+        return (self.__name)
+    
+class ToCheckProtectedVariable(Person):
+    def check(self):
+        print(f"{self._gender}")
+
+
+obj1 = Person("Swastik",23,"male")
+print(obj1.getName())
+# print(obj1.__name)   # this give error
+
+print(obj1.age)       # work fine 
+obj2 = ToCheckProtectedVariable("Swastik",23,"male")
+obj2.check()
+
