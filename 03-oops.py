@@ -23,27 +23,76 @@
 
 # making a bank system 
 
-class BankAccount:
-    def __init__(self,name,balance=0):
+# class BankAccount:
+#     def __init__(self,name,balance=0):
+#         self.name = name
+#         self.balance = balance 
+
+#     def deposite(self,amount):
+#         self.balance += amount
+#         print (f"{amount} has been deposite")
+
+#     def withdrawl(self,amount):
+#         if (amount < self.balance):
+#             self.balance -= amount 
+#             print(f"{amount} has be withdrawled")
+#         else:
+#             print ("insufficient amount")
+
+#     def checkBalance(self):
+#         print (self.balance)
+
+# obj = BankAccount("swastik",50000)
+# obj.checkBalance()
+# obj.deposite(32000)
+# obj.withdrawl(13000)
+# obj.checkBalance()
+
+
+
+# INHERITANCE
+class car:
+    def __init__(self,name,color):
         self.name = name
-        self.balance = balance 
+        self.color = color
 
-    def deposite(self,amount):
-        self.balance += amount
-        print (f"{amount} has been deposite")
+    def carSpeed(self,speed):
+        print (f"{self.name} have the top speed {speed} ")
 
-    def withdrawl(self,amount):
-        if (amount < self.balance):
-            self.balance -= amount 
-            print(f"{amount} has be withdrawled")
-        else:
-            print ("insufficient amount")
+class kia(car):
+    def __init__ (self,name,color,model):
+        super().__init__(name,color)  # Here we user super keyword 
+        self.model = model
 
-    def checkBalance(self):
-        print (self.balance)
+    def selfDrive(self):
+        print(f"{self.name} Support {self.model}")
 
-obj = BankAccount("swastik",50000)
-obj.checkBalance()
-obj.deposite(32000)
-obj.withdrawl(13000)
-obj.checkBalance()
+obj = car("swastik","gray")
+obj.carSpeed(100)
+
+obj2 = kia("swastik","gray","base")
+obj2.selfDrive()
+
+
+# multi class inheritance
+class Animals :
+    def __init__ (self,name):
+        self.name= name
+    
+    def speak(self):
+        print("animal class")
+
+class pet:
+    def __init__(self,owner):
+        self.owner = owner
+
+class Dog(Animals,pet):
+    def __init__ (self,name,owner):
+        Animals.__init__(self,name)
+        pet.__init__(self,owner)
+
+    def identity(self):
+        print(f"{self.owner} ows {self.name}")
+
+obj = Dog("bunny","swastik")
+obj.identity()
