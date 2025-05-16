@@ -135,26 +135,50 @@
 
 # Encapsulation 
 
-# private 
-class Person:
-    def __init__ (self,name,age,gender):
-        self.__name = name  #yeh bn gaya pvt variable 
-        self.age = age  # this is normal public var
-        self._gender = gender
+# # private 
+# class Person:
+#     def __init__ (self,name,age,gender):
+#         self.__name = name  #yeh bn gaya pvt variable 
+#         self.age = age  # this is normal public var
+#         self._gender = gender
 
-    def getName(self):
-        return (self.__name)
+#     def getName(self):
+#         return (self.__name)
     
-class ToCheckProtectedVariable(Person):
-    def check(self):
-        print(f"{self._gender}")
+# class ToCheckProtectedVariable(Person):
+#     def check(self):
+#         print(f"{self._gender}")
 
 
-obj1 = Person("Swastik",23,"male")
-print(obj1.getName())
-# print(obj1.__name)   # this give error
+# obj1 = Person("Swastik",23,"male")
+# print(obj1.getName())
+# # print(obj1.__name)   # this give error
 
-print(obj1.age)       # work fine 
-obj2 = ToCheckProtectedVariable("Swastik",23,"male")
-obj2.check()
+# print(obj1.age)       # work fine 
+# obj2 = ToCheckProtectedVariable("Swastik",23,"male")
+# obj2.check()
+
+
+
+# # Abstraction 
+
+# from abc import ABC ,abstractmethod
+# class Animal(ABC):
+#     @abstractmethod
+#     def make_sound(self):
+#         pass
+
+# class Dog(Animal):
+#     def make_sound(self):
+#         print("barks")
+
+# class cat(Animal):
+#     def make_sound(self):
+#         print("meow")
+
+# obj1 = Dog()
+# obj1.make_sound()
+
+
+
 
