@@ -51,3 +51,44 @@ if __name__ == "__main__":
 
         for i in result:
             print(i)     
+
+
+
+# real world example of multiprecessing
+
+import multiprocessing
+import math
+import sys
+import time 
+
+def factorial(number):
+    result = math.factorial(number)
+    print (result)
+
+if __name__ == "__main__":
+    number = [6,30,7]
+    final = []
+    for num in number :
+        p = multiprocessing.Process(target=factorial,args=(num,))
+        final.append(p)
+        p.start()
+
+    for process in final:
+        process.join()
+
+
+
+# do with he process pool executor
+import multiprocessing
+import math
+import sys
+import time 
+
+def factorial(number):
+    result = math.factorial(number)
+    print( result)
+
+if __name__ == "__main__":
+    number = [6,30,7]
+    with multiprocessing.Pool() as pool:
+        result = pool.map(factorial,number)

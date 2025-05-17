@@ -73,3 +73,54 @@ with ThreadPoolExecutor(max_workers=6) as executor:
 
     for i in result:
         print(i)     
+
+
+
+# real world example
+import threading
+import requests
+from bs4 import BeautifulSoup
+
+urls = [
+    'https://en.wikipedia.org/wiki/Main_Page',
+    'https://en.wikipedia.org/wiki/President_of_Uruguay'
+]
+
+def fetch(urls):
+    response = requests.get(urls)
+    soup = BeautifulSoup(response.content,'html.parser')
+    print(f"fetched {len(soup.text)} chars from {urls}" )
+    # print(f"{len(response.content)} chars") 
+
+threads = []
+for url in urls:
+    t= threading.Thread(target=fetch,args=(url,))
+
+    threads.append(t)
+    t.start()
+
+for thread in threads:
+    thread.join()
+
+
+# other way to do the above code is by using thread pool executor
+
+from concurrent.futures import ThreadPoolExecutor
+import requests
+from bs4 import BeautifulSoup
+
+urls = [
+    'https://en.wikipedia.org/wiki/Main_Page',
+    'https://en.wikipedia.org/wiki/President_of_Uruguay'
+]
+
+def fetch(urls):
+    response = requests.get(urls)
+    soup = BeautifulSoup(response.content,'html.parser')
+    print(f"fetched {len(soup.text)} chars from {urls}" )
+    # print(f"{len(response.content)} chars") 
+
+
+with ThreadPoolExecutor(max_workers=2) as executor:
+    executor.map(fetch,urls)
+        
