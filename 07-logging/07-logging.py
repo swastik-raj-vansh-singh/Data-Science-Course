@@ -6,7 +6,7 @@ logging.basicConfig(
 
     handlers=[
         logging.FileHandler('app.py'),
-        # logging.StreamHandler()
+        logging.StreamHandler()
     ]  
 
     )
@@ -19,6 +19,8 @@ def add(a,b):
     return result
 
 add(3,4)
+
+
 # logging.debug("debug message")
 # logging.info("info message")
 # logging.warning("warning message")

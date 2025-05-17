@@ -1,0 +1,11 @@
+Program -- a Program is a sequence of instructions written in programming language 
+
+process -- An instance of program that is been executed 
+-- its a independent program with its own memory 
+-- if one process crash it doesn't affect the other 
+
+Threads --  sub task of the process 
+-- it share its memory with other Threads
+-- one thread crash may crash the other threads 
+-- in simple language doing small task at the same time inside the same program
+
