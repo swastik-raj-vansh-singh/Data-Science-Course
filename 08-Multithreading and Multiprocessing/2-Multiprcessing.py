@@ -33,3 +33,21 @@ if __name__ == "__main__":
     print(end)
 
 # time take is 5 sec and they are running as seperate process and both these process have seperate memory 
+
+
+# using multiprocessing with process pool executor
+from concurrent.futures import ProcessPoolExecutor
+import time
+
+def print_number(number):
+    time.sleep(2)
+    return (f" number is {number}")
+
+number = [1,2,3,4,5,6]
+
+if __name__ == "__main__":
+    with ProcessPoolExecutor(max_workers=6) as executor:
+        result = executor.map(print_number,number)
+
+        for i in result:
+            print(i)     

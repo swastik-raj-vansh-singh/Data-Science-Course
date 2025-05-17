@@ -56,3 +56,20 @@ end = time.time() - start
 print(end)
 
 # this code take 5 sec to run which is faster that above 
+
+
+# MULTITHREADING WITH THREAD POOL EXECUTOR
+from concurrent.futures import ThreadPoolExecutor
+import time
+
+def print_number(number):
+    time.sleep(2)
+    return (f" number is {number}")
+
+number = [1,2,3,4,5,6]
+
+with ThreadPoolExecutor(max_workers=6) as executor:
+    result = executor.map(print_number,number)
+
+    for i in result:
+        print(i)     
