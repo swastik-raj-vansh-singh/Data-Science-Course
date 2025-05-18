@@ -50,21 +50,31 @@
 
 # lets try something more cool
 import streamlit as st
-import wikipedia
+# import wikipedia
 
-from streamlit_searchbox import st_searchbox
-
-
-def search_wikipedia(searchterm: str) -> list:
-    # search wikipedia for the searchterm
-    return wikipedia.search(searchterm) if searchterm else []
+# from streamlit_searchbox import st_searchbox
 
 
-# pass search function and other options as needed
-selected_value = st_searchbox(
-    search_wikipedia,
-    placeholder="Search Wikipedia... ",
-    key="my_key",
-)
+# def search_wikipedia(searchterm: str) -> list:
+#     # search wikipedia for the searchterm
+#     return wikipedia.search(searchterm) if searchterm else []
 
-st.write(f"Selected value: {selected_value}")
+
+# # pass search function and other options as needed
+# selected_value = st_searchbox(
+#     search_wikipedia,
+#     placeholder="Search Wikipedia... ",
+#     key="my_key",
+# )
+
+# st.write(f"Selected value: {selected_value}")
+
+
+
+
+from st_audiorec import st_audiorec
+
+wav_audio_data = st_audiorec()
+
+if wav_audio_data is not None:
+    st.audio(wav_audio_data, format='audio/wav')
