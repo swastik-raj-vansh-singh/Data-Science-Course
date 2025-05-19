@@ -7,3 +7,6 @@ def FindMissingNumber(l):
 
 array = [9,6,4,2,3,5,7,0,1]
 print(FindMissingNumber(array))
+
+
+# there are also other way to do this question 
