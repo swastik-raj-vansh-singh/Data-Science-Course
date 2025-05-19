@@ -1,13 +1,22 @@
-# this approach is not handle 2 cases when pivot element is in oth index or in the last index
 def pivot(l):
     n = len(l)
     start = 0
     end = n-1
     sum1 = 0
     sum2 = 0
+    first  = sum(l) - l[0]
+    last = sum(l) - l[n-1]
+
+    if sum(l[1:]) == 0:
+        return 0
     
     while (start < end):
-        if (l[start] + sum1 == l[end] + sum2 ):
+        if first == 0:
+            return 0
+        if last == 0:
+            return n-1
+            
+        elif (l[start] + sum1 == l[end] + sum2 ):
             return (start+1)
             
         elif (l[start]+sum1 < l[end] + sum2):
@@ -18,5 +27,7 @@ def pivot(l):
             end -= 1
     return -1
 
-array = [1,3,2,5,6,8,3]
+array = [0,0,0, 0]
 print (pivot(array))
+
+
