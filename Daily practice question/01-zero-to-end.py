@@ -9,7 +9,7 @@ def MovingZeroToTheLast(l):
             # have to handle this case 
             if slow != fast:
                 l[fast] = 0
-                
+
             slow += 1
             fast +=1
         else:
