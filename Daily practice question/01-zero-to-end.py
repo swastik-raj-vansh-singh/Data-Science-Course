@@ -5,8 +5,11 @@ def MovingZeroToTheLast(l):
     while(fast < n):
         if l[fast] !=0 :
             l[slow] = l[fast]
+
+            # have to handle this case 
             if slow != fast:
                 l[fast] = 0
+                
             slow += 1
             fast +=1
         else:
