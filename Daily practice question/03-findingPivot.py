@@ -31,7 +31,7 @@ array = [0,0,0, 0]
 print (pivot(array))
 
 
-
+# not by me
 # add second and smaller approach 
 def pivot_index(nums):
     total_sum = sum(nums)
