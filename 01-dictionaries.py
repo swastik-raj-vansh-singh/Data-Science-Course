@@ -19,7 +19,8 @@ for key,value in students.items():
     print (f"{key} - {value}")
 
 s = "my name is swastik"
-words = s.split()
+s1 = " my name is shruti"
+words = s1.split()
 print(words)
 
 # count the frequency of workd
