@@ -19,7 +19,7 @@ for key,value in students.items():
     print (f"{key} - {value}")
 
 s = "my name is swastik"
-s1 = " my name is shruti"
+s1 = " my name is shruti"         
 words = s1.split()
 print(words)
 
